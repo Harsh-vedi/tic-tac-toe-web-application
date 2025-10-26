@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+body {
+    background: #0a0f2c;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.game-container {
+    width: 600px;
+    margin: 80px auto;
+    padding: 20px;
+    background: rgba(20,20,40,0.6);
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0,255,255,0.3);
+}
+
+.title {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.neon {
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff;
+}
+
+.board {
+    width: 330px;
+    height: 330px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #355;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.cell:hover {
+    background: rgba(0,255,255,0.1);
+}
+
+.btn {
+    padding: 10px 18px;
+    border: none;
+    background: #1b628c;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 5px;
+    transition: 0.2s;
+}
+.btn:hover {
+    background: #00bcd4;
+}
+
+.btn.active {
+    background: #00ffff;
+    color: #000;
+}
+
+.restart {
+    background: #d62839;
+}
+.restart:hover {
+    background: #ff4757;
+}
+
+.status {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.score {
+    margin-top: 10px;
+    font-size: 17px;
+}
+/* WINNING ANIMATION */
+@keyframes glowPulse {
+    0% {
+        text-shadow: 0 0 10px #0ff;
+        transform: scale(1.05);
+    }
+    50% {
+        text-shadow: 0 0 25px #0ff, 0 0 45px #00f5ff;
+        transform: scale(1.15);
+    }
+    100% {
+        text-shadow: 0 0 10px #0ff;
+        transform: scale(1.05);
+    }
+}
+
+.win {
+    animation: glowPulse 0.8s infinite alternate;
+    color: #00ffff;
+}
+
+/* MARKER ANIMATION */
+.cell {
+    transition: transform 0.2s ease-out;
+}
+
+.cell.filled {
+    animation: enterMark 0.3s ease-out forwards;
+}
+
+@keyframes enterMark {
+    0% { opacity: 0; transform: scale(0.3); }
+    100% { opacity: 1; transform: scale(1); }
+}
